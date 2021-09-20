@@ -21,6 +21,9 @@
       <template v-slot:[`item.user`]="{ item }">
         {{ item.user.name }}
       </template>
+      <!-- <template v-slot:[`header.incident`]="{ header }">
+        {{ header.text.toUpperCase() }}
+      </template> -->
     </v-data-table>
   </div>
 </template>

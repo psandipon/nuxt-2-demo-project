@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar rounded flat dark color="primary">
+  <v-app-bar rounded flat color="grey lighten-3">
     <v-toolbar-title class="text-capitalize font-weight-bold">
       {{ title }}
     </v-toolbar-title>
