@@ -35,7 +35,6 @@ export default {
   computed: {
     ...mapGetters("module/topic", ["GET_TOPICS_DATA"])
   },
-
   methods: {
     ...mapActions("module/topic", ["FETCH_TOPICS_DATA"])
   }

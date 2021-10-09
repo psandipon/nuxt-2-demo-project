@@ -3,6 +3,7 @@ export const state = () => ({
   incidents: []
 });
 
+// getters
 export const getters = {
   GET_INCIDENTS_DATA: state => {
     return state.incidents;

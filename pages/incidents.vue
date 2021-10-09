@@ -7,7 +7,6 @@
       :items-per-page="5"
       class="elevation-1"
     >
-     
     </v-data-table>
   </div>
 </template>
@@ -26,18 +25,14 @@ export default {
           text: "Event id",
           value: "eventid"
         },
-        
+
         { text: "Event Name", value: "eventname" },
         { text: "Real Name", value: "realname" },
         { text: "Date Time", value: "datetime" }
-      ],
-   
-    
-     
+      ]
     };
   },
   mounted() {
-
     this.FETCH_INCIDENTS_DATA();
   },
   computed: {
