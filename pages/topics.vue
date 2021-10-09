@@ -17,12 +17,17 @@ export default {
     return {
       headers: [
         {
-          text: "User Id",
-          value: "id"
+          text: "User id",
+          value: "userid"
         },
-        { text: "User Name", value: "name" },
-        { text: "Total Trips", value: "total_trips" },
-        { text: "Total Incidents", value: "total_incidents" }
+        {
+          text: "Event id",
+          value: "eventid"
+        },
+        
+        { text: "Event Name", value: "eventname" },
+        { text: "Real Name", value: "realname" },
+        { text: "Date Time", value: "datetime" }
       ],
    
     };

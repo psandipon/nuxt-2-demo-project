@@ -20,7 +20,7 @@ const mutations = {
 const actions = {
   FETCH_TOPICS_DATA({ commit }, searchParam = {}) {
     searchParam = {
-      parentuserid: 1
+      userid: 1
     };
     return new Promise((resolve, reject) => {
       this.$axios

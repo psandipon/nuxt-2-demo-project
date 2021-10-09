@@ -19,14 +19,16 @@ export default {
     return {
       headers: [
         {
-          text: "Date",
-          value: "date"
+          text: "Trip id",
+          value: "tripid"
         },
-        { text: "Incident Type", value: "incident" },
-        { text: "Status", value: "status" },
-        { text: "Video URL", value: "video" },
-        { text: "Trip", value: "trip" },
-        { text: "User", value: "user" }
+        { text: "Create datetime", value: "createdatetime" },
+        { text: "Email", value: "email" },
+        { text: "End datetime", value: "enddatetime" },
+        { text: "Real name", value: "realname" },
+        { text: "Trip name", value: "tripname" },
+        { text: "User name", value: "username" },
+        
       ],
      
     };
