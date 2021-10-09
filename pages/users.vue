@@ -1,13 +1,9 @@
 <template>
   <div>
-    <!-- <pre>
-      {{ GET_USERS_DATA }}
-      {{ users }}
-    </pre> -->
     <BrandTitle title="Users" />
     <v-data-table
       :headers="headers"
-      :items="users"
+      :items="GET_USERS_DATA"
       :items-per-page="5"
       class="elevation-1"
     />
@@ -22,25 +18,11 @@ export default {
       headers: [
         {
           text: "User Id",
-          value: "id"
+          value: "userid"
         },
-        { text: "User Name", value: "name" },
-        { text: "Total Trips", value: "total_trips" },
-        { text: "Total Incidents", value: "total_incidents" }
-      ],
-      users: [
-        {
-          id: "5",
-          name: "Robin",
-          total_trips: "11",
-          total_incidents: "1"
-        },
-        {
-          id: "9",
-          name: "Mr Hood",
-          total_trips: "7",
-          total_incidents: "0"
-        }
+        { text: "User Name", value: "username" },
+        { text: "Total Trips", value: "tripscount" },
+        { text: "Total Incidents", value: "eventscount" }
       ]
     };
   },
