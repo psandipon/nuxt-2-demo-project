@@ -15,7 +15,7 @@ import { mapMutations, mapGetters, mapActions } from "vuex";
 export default {
   data() {
     return {
-        headers: [
+      headers: [
         {
           text: "Trip id",
           value: "tripid"
@@ -25,13 +25,11 @@ export default {
         { text: "End datetime", value: "enddatetime" },
         { text: "Real name", value: "realname" },
         { text: "Trip name", value: "tripname" },
-        { text: "User name", value: "username" },
-        
-      ],
+        { text: "User name", value: "username" }
+      ]
     };
   },
   mounted() {
-
     this.FETCH_TOPICS_DATA();
   },
   computed: {
