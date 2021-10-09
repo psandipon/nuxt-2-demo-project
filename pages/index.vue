@@ -10,6 +10,11 @@
           <p>Incidents - 25</p>
           <p>Topics - 25</p>
         </v-card>
+        <v-card
+          class="d-flex justify-center align-end flex-column red--text overline elevation-0 transparent--text mt-n10 mr-5"
+        >
+          <b>LIVE</b>
+        </v-card>
       </v-col>
       <v-col cols="12" md="3" xs="12">
         <DashboardInfocard title="Incidents" number="25" />
@@ -25,34 +30,16 @@
       </v-col>
     </v-row>
     <v-row>
-      <v-col cols="12" md="3" xs="12">
-        <v-card
-          height="300"
-          class="d-flex justify-center align-center flex-column text-h4"
-        >
-          <p>Incidents</p>
-          <p>VS</p>
-          <p>Time</p>
-        </v-card>
-      </v-col>
-      <v-col cols="12" md="9" xs="12">
+      <v-col cols="12">
+        <BrandTitle title="Incidents VS Time" />
         <v-card height="300" class="pa-5">
           <ChartsSpline v-if="charts" />
         </v-card>
       </v-col>
     </v-row>
     <v-row>
-      <v-col cols="12" md="3" xs="12">
-        <v-card
-          height="300"
-          class="d-flex justify-center align-center flex-column text-h4"
-        >
-          <p>Topics</p>
-          <p>VS</p>
-          <p>Time</p>
-        </v-card>
-      </v-col>
-      <v-col cols="12" md="9" xs="12">
+      <v-col cols="12">
+        <BrandTitle title="Topics VS Time" />
         <v-card height="300" class="pa-5">
           <ChartsSpline v-if="charts" />
         </v-card>
@@ -143,4 +130,12 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style>
+th {
+  font-weight: 900 !important;
+  font-size: 16px !important;
+  color: black !important;
+  padding-top: 20px !important;
+  padding-bottom: 20px !important;
+}
+</style>
