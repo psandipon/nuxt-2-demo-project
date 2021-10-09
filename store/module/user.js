@@ -18,7 +18,7 @@ const mutations = {
 
 // Actions
 const actions = {
-  FETCH_USERS_DATA({ commit }, searchParam={}) {
+  FETCH_USERS_DATA({ commit }, searchParam = {}) {
     searchParam = {
       parentuserid: 1
     };

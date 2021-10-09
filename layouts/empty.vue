@@ -1,14 +1,5 @@
 <template>
   <v-app>
-    <v-app-bar
-      :clipped-left="clipped"
-      fixed
-      app
-      elevate-on-scroll
-      color="grey lighten-3"
-    >
-      <v-toolbar-title v-text="title" />
-    </v-app-bar>
     <v-main>
       <v-container>
         <Nuxt />
