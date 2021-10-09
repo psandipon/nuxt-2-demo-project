@@ -3,7 +3,7 @@
     <BrandTitle title="Topics" />
     <v-data-table
       :headers="headers"
-      :items="topics"
+      :items="GET_TOPICS_DATA"
       :items-per-page="5"
       class="elevation-1"
     />
@@ -11,33 +11,35 @@
 </template>
 
 <script>
+import { mapMutations, mapGetters, mapActions } from "vuex";
 export default {
   data() {
     return {
-      headers: [
+        headers: [
         {
-          text: "User Id",
-          value: "id"
+          text: "Trip id",
+          value: "tripid"
         },
-        { text: "User Name", value: "name" },
-        { text: "Total Trips", value: "total_trips" },
-        { text: "Total Incidents", value: "total_incidents" }
+        { text: "Create datetime", value: "createdatetime" },
+        { text: "Email", value: "email" },
+        { text: "End datetime", value: "enddatetime" },
+        { text: "Real name", value: "realname" },
+        { text: "Trip name", value: "tripname" },
+        { text: "User name", value: "username" },
+        
       ],
-      topics: [
-        {
-          id: "5",
-          name: "Robin",
-          total_trips: "11",
-          total_incidents: "1"
-        },
-        {
-          id: "9",
-          name: "Mr Hood",
-          total_trips: "7",
-          total_incidents: "0"
-        }
-      ]
     };
+  },
+  mounted() {
+
+    this.FETCH_TOPICS_DATA();
+  },
+  computed: {
+    ...mapGetters("module/topic", ["GET_TOPICS_DATA"])
+  },
+
+  methods: {
+    ...mapActions("module/topic", ["FETCH_TOPICS_DATA"])
   }
 };
 </script>
