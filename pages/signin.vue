@@ -1,40 +1,60 @@
 <template>
+
   <v-card
-    class="d-flex justify-center align-center"
-    :height="$vuetify.breakpoint.height - 20"
-    flat
+    max-width="400"
+    class="mx-auto"
+    height="400"
+    style="margin-top:50px; "
+
   >
-    {{ loading }}
-    <v-card height="500" width="500" color="" class="pa-10">
-      <div class="d-flex justify-center align-center ma-2 mt-10">
-        <v-avatar class="profile" color="grey" size="100">
-          <v-img src="/v.png"></v-img>
-        </v-avatar>
-      </div>
-      <div class="d-flex justify-center align-center mt-2 mb-1 mb-10">
-        <span class="text-h5 white--text">
-          DRISHTIM
-        </span>
-      </div>
-      <v-text-field
-        label="username"
-        placeholder="username"
-        outlined
-        v-model="user.username"
-      ></v-text-field>
-      <v-text-field
-        label="password"
-        placeholder="password"
-        outlined
-        v-model="user.password"
-      ></v-text-field>
-      <v-btn @click="login">
-        Login
-      </v-btn>
-    </v-card>
+
+
+  
+    <v-container >
+      <v-row dense>
+        <v-col
+          cols="12"
+          sm="12"
+          md="12"
+        >
+          <h2 class="text-center mt-6"><b>Login</b></h2>
+        </v-col>
+        <v-col
+          cols="12"
+          sm="12"
+          md="12"
+        >
+          <v-text-field
+            style="margin-top:20px;margin-right:20px;margin-left:20px;"
+            label="Email"
+            outlined
+          ></v-text-field>
+
+        </v-col>
+        <v-col
+          cols="12"
+          sm="12"
+          md="12"
+        >
+          <v-text-field
+            style="margin-right:20px;margin-left:20px; margin-bottom:0px;"
+            label="Password"
+            outlined
+            type="password"
+          ></v-text-field>
+         <p align="right" style="margin-right:20px; margin-top:0px;"><a>forgot passwod?</a></p>
+        </v-col>
+        
+      </v-row> 
+
+      <v-card-actions class="justify-center ">
+  <v-btn class="primary">
+    Login
+  </v-btn>
+</v-card-actions>
+    </v-container>
   </v-card>
 </template>
-
 <script>
 export default {
   layout: "empty",
@@ -42,7 +62,21 @@ export default {
     return {
       user: { username: "dineshxxxv", password: "aaaaaa" },
       loading: false,
-      passwordType: "password"
+      passwordType: "password",
+      items: [
+        {
+          color: '#1F7087',
+          src: 'https://cdn.vuetifyjs.com/images/cards/foster.jpg',
+          title: 'Supermodel',
+          artist: 'Foster the People',
+        },
+        {
+          color: '#952175',
+          src: 'https://cdn.vuetifyjs.com/images/cards/halcyon.png',
+          title: 'Halcyon Days',
+          artist: 'Ellie Goulding',
+        },
+      ],
     };
   },
   methods: {
