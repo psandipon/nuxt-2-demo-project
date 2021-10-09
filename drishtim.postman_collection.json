@@ -1,0 +1,297 @@
+{
+	"info": {
+		"_postman_id": "e05a1219-dbd1-4ef0-a9af-0e1235ab3b87",
+		"name": "drishtim",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "events",
+			"item": [
+				{
+					"name": "get all events",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"userid\":1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/events/getAllEvents",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"events",
+								"getAllEvents"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "{{url}}/events/addEvent",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"eventid\":2,\n    \"videourl\":\"www.google.com\",\n    \"tripid\":2,\n    \"userid\":1\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/events/addEvent",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"events",
+								"addEvent"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "Add User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"phonenumber\":\"9764790923\",\n\"username\":\"dineshxxxv\",\n\"pass\":\"aaaaaa\",\n\"parentuserid\":0,\n\"realname\":\"Professor Ramos\",\n\"email\":\"dskhobragade@gmail.com\",\n\"usertype\":1\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/users/adduser",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"adduser"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getuser",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"username\":\"dineshxxxv\",\n\"password\":\"aaaaaa\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/users/getuser",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"getuser"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get drivers",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"parentuserid\":1\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/users/getdrivers",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"getdrivers"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "trips",
+			"item": [
+				{
+					"name": "get all counts",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"userid\":2\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/trips/getLiveCounts",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"trips",
+								"getLiveCounts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get trips",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"userid\":1,\n\"parentuserid\":0\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/trips/getAllTrips",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"trips",
+								"getAllTrips"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add trip",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"userid\":1,\n\"tripname\":\"xxx-111\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/trips/addTrip",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"trips",
+								"addTrip"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "end trip",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"tripid\":111\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/trips/endTrip",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"trips",
+								"endTrip"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"//let url = 'localhost:8000'",
+					"let url = 'https://drishtim.herokuapp.com'",
+					"",
+					"pm.collectionVariables.set(\"url\",url)",
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": ""
+		}
+	]
+}

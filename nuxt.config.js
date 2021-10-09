@@ -23,6 +23,13 @@ export default {
   css: [
   ],
 
+  axios: {
+    // See https://github.com/nuxt-community/axios-module#options
+    baseURL: "https://drishtim.herokuapp.com"
+  },
+
+
+
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     {src: "~/plugins/apexchart.js", ssr: false}
@@ -38,8 +45,7 @@ export default {
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [
-  ],
+  modules: ["@nuxtjs/axios", "@nuxtjs/proxy", "@nuxtjs/auth-next"],
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {

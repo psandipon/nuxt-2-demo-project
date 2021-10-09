@@ -1,5 +1,9 @@
 <template>
   <div>
+    <!-- <pre>
+      {{ GET_USERS_DATA }}
+      {{ users }}
+    </pre> -->
     <BrandTitle title="Users" />
     <v-data-table
       :headers="headers"
@@ -11,6 +15,7 @@
 </template>
 
 <script>
+import { mapMutations, mapGetters, mapActions } from "vuex";
 export default {
   data() {
     return {
@@ -38,6 +43,16 @@ export default {
         }
       ]
     };
+  },
+  mounted() {
+    this.FETCH_USERS_DATA();
+  },
+  computed: {
+    ...mapGetters("module/user", ["GET_USERS_DATA"])
+  },
+
+  methods: {
+    ...mapActions("module/user", ["FETCH_USERS_DATA"])
   }
 };
 </script>

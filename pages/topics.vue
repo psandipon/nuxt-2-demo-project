@@ -1,9 +1,9 @@
 <template>
   <div>
-    <BrandTitle title="Settings" />
+    <BrandTitle title="Topics" />
     <v-data-table
       :headers="headers"
-      :items="users"
+      :items="topics"
       :items-per-page="5"
       class="elevation-1"
     />
@@ -23,7 +23,7 @@ export default {
         { text: "Total Trips", value: "total_trips" },
         { text: "Total Incidents", value: "total_incidents" }
       ],
-      users: [
+      topics: [
         {
           id: "5",
           name: "Robin",

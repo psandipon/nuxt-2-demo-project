@@ -7,6 +7,9 @@
       :items-per-page="5"
       class="elevation-1"
     >
+      <template v-slot:[`item.date`]="{ item }">
+        {{ item.incident.date }}
+      </template>
       <template v-slot:[`item.incident`]="{ item }">
         {{ item.incident.type }}
       </template>
@@ -20,6 +23,9 @@
       </template>
       <template v-slot:[`item.user`]="{ item }">
         {{ item.user.name }}
+      </template>
+      <template v-slot:[`item.status`]="{ item }">
+        {{ item.user.status }}
       </template>
     </v-data-table>
   </div>
@@ -42,13 +48,13 @@ export default {
       ],
       incidents: [
         {
-          date: "24-5-2020",
           incident: {
-            title: "Something happend",
+            title: "Something happened",
             type: "bad",
-            id: "502"
+            id: "502",
+            date: "24-5-2020",
+            status: "bad"
           },
-          status: "bad",
           video: {
             title: "https:www.youtube.com",
             id: "809",
@@ -63,13 +69,13 @@ export default {
           }
         },
         {
-          date: "24-5-2020",
           incident: {
-            title: "Something happend",
+            title: "Something happened",
             type: "bad",
-            id: "502"
+            id: "502",
+            date: "24-5-2020",
+            status: "bad"
           },
-          status: "bad",
           video: {
             title: "https:www.youtube.com",
             id: "809",
