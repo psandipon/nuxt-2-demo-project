@@ -19,17 +19,20 @@ export default {
     return {
       headers: [
         {
-          text: "Trip id",
-          value: "tripid"
+          text: "User id",
+          value: "userid"
         },
-        { text: "Create datetime", value: "createdatetime" },
-        { text: "Email", value: "email" },
-        { text: "End datetime", value: "enddatetime" },
-        { text: "Real name", value: "realname" },
-        { text: "Trip name", value: "tripname" },
-        { text: "User name", value: "username" },
+        {
+          text: "Event id",
+          value: "eventid"
+        },
         
+        { text: "Event Name", value: "eventname" },
+        { text: "Real Name", value: "realname" },
+        { text: "Date Time", value: "datetime" }
       ],
+   
+    
      
     };
   },

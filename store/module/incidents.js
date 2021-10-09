@@ -25,7 +25,7 @@ const actions = {
     };
     return new Promise((resolve, reject) => {
       this.$axios
-        .$post("/trips/getAllTrips", searchParam)
+        .$post("/events/getAllEvents", searchParam)
         .then(function(response) {
           commit("SET_INCIDENTS_DATA", response.data);
           resolve(response);
