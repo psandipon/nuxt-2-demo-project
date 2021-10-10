@@ -3,7 +3,7 @@
   <v-card
     max-width="400"
     class="mx-auto"
-    height="400"
+    height="430"
     style="margin-top:50px; "
 
   >
@@ -52,6 +52,7 @@
     Login
   </v-btn>
 </v-card-actions>
+ <p align="center" style="margin-right:20px; margin-top:0px;">Want to register <a @click="signUpAction()">Sign up?</a></p>
     </v-container>
   </v-card>
 </template>
@@ -80,6 +81,9 @@ export default {
     };
   },
   methods: {
+     signUpAction(){
+       this.$router.push('/signup');
+    },
     login() {
       // this.$refs.form.validate()
       if (true) {
