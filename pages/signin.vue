@@ -28,6 +28,7 @@
             style="margin-top:20px;margin-right:20px;margin-left:20px;"
             label="Email"
             outlined
+             prepend-inner-icon="mdi-account"
           ></v-text-field>
 
         </v-col>
@@ -41,6 +42,7 @@
             label="Password"
             outlined
             type="password"
+             prepend-inner-icon="mdi-lock"
           ></v-text-field>
          <p align="right" style="margin-right:20px; margin-top:0px;"><a>forgot passwod?</a></p>
         </v-col>
