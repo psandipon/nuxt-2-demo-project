@@ -33,6 +33,25 @@ const actions = {
           reject(error);
         });
     });
+  },
+  ADD_USER({ commit }, payload = {}) {
+    return new Promise((resolve, reject) => {
+      this.$axios
+        .$post("/users/adduser", payload)
+        .then(function(response) {
+          // console.log('response:', response.error)
+          if(response.error){
+            reject(response.error);
+          }else {
+            commit("SET_USERS_DATA", response.data);
+            resolve(response);
+          }
+
+        })
+        .catch(function(error) {
+          reject(error);
+        });
+    });
   }
 };
 

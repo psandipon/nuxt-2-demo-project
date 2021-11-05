@@ -13,6 +13,7 @@
 <script>
 import { mapMutations, mapGetters, mapActions } from "vuex";
 export default {
+  middleware: ["authMiddleware"],
   data() {
     return {
       headers: [

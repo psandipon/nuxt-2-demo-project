@@ -38,7 +38,12 @@ export default {
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ["@nuxtjs/axios", "@nuxtjs/proxy", "@nuxtjs/auth-next"],
+  modules: [
+    "@nuxtjs/axios",
+    "@nuxtjs/proxy",
+    "@nuxtjs/auth-next",
+    "@nuxtjs/toast"
+  ],
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
@@ -77,6 +82,20 @@ export default {
         }
       }
     }
+  },
+
+  toast: {
+    position: "top-center",
+    register: [
+      // Register custom toasts
+      {
+        name: "my-error",
+        message: "Oops...Something went wrong",
+        options: {
+          type: "error"
+        }
+      }
+    ]
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

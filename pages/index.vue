@@ -1,7 +1,5 @@
 <template>
   <div class="ma-5">
-    {{ $auth.user }} ??
-    {{ this.$auth.loggedIn }}
     <v-row>
       <v-col cols="12" md="3" xs="12">
         <v-card
@@ -58,6 +56,7 @@
 
 <script>
 export default {
+  middleware: ["authMiddleware"],
   data() {
     return {
       charts: false,

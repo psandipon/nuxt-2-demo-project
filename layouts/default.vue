@@ -63,7 +63,7 @@
 
       <v-toolbar-title v-text="title" />
       <v-spacer />
-      <v-btn outlined>
+      <v-btn outlined @click="logout">
         Logout
       </v-btn>
     </v-app-bar>
@@ -114,6 +114,12 @@ export default {
       rightDrawer: false,
       title: "Drishtim"
     };
+  },
+  methods: {
+    async logout() {
+      await this.$auth.logout();
+      this.$router.push("/signin");
+    }
   }
 };
 </script>
