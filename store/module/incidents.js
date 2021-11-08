@@ -21,8 +21,8 @@ const mutations = {
 const actions = {
   FETCH_INCIDENTS_DATA({ commit }, searchParam = {}) {
     searchParam = {
-      userid: 1,
-      parentuserid: 0
+      userid: this.$auth.user.userid,
+      parentuserid:  this.$auth.user.parentuserid
     };
     return new Promise((resolve, reject) => {
       this.$axios

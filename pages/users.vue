@@ -5,6 +5,7 @@
       :headers="headers"
       :items="GET_USERS_DATA"
       :items-per-page="5"
+      :loading="loading"
       class="elevation-1"
     />
   </div>
@@ -24,11 +25,15 @@ export default {
         { text: "User Name", value: "username" },
         { text: "Total Trips", value: "tripscount" },
         { text: "Total Incidents", value: "eventscount" }
-      ]
+      ],
+      loading: false
     };
   },
   mounted() {
-    this.FETCH_USERS_DATA();
+    this.loading = true;
+    this.FETCH_USERS_DATA().then(res => {
+      this.loading = false;
+    });
   },
   computed: {
     ...mapGetters("module/user", ["GET_USERS_DATA"])

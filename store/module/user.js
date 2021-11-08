@@ -20,7 +20,8 @@ const mutations = {
 const actions = {
   FETCH_USERS_DATA({ commit }, searchParam = {}) {
     searchParam = {
-      parentuserid: 1
+      userid: this.$auth.user.userid,
+      parentuserid:  this.$auth.user.parentuserid
     };
     return new Promise((resolve, reject) => {
       this.$axios

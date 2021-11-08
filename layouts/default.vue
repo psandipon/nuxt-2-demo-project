@@ -95,8 +95,8 @@ export default {
         },
         {
           icon: "mdi-cards-diamond",
-          title: "Topics",
-          to: "/topics"
+          title: "Trips",
+          to: "/Trips"
         },
         {
           icon: "mdi-cards-club",

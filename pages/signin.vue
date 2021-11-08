@@ -35,7 +35,7 @@
       </v-row>
 
       <v-card-actions class="justify-center ">
-        <v-btn class="primary" @click="login">
+        <v-btn class="primary" @click="login" :loading="loading">
           Login
         </v-btn>
       </v-card-actions>
@@ -51,6 +51,7 @@ export default {
   data() {
     return {
       user: { username: "dineshxxxv", password: "aaaaaa" },
+      // user: { username: "", password: "" },
       loading: false,
       passwordType: "password"
     };
@@ -77,6 +78,7 @@ export default {
               this.$router.push("/");
               msg = "Successful, Welcome " + res.data.data.realname;
             }
+            this.loading = false;
             this.$toast.show(msg, {
               theme: "toasted-primary",
               position: "bottom-right",

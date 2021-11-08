@@ -59,7 +59,7 @@
       </v-row>
 
       <v-card-actions class="justify-center ">
-        <v-btn class="primary mt-4" @click="signup">
+        <v-btn class="primary mt-4" @click="signup" :loading="loading">
           Sign Up
         </v-btn>
       </v-card-actions>
@@ -75,13 +75,22 @@ export default {
   layout: "empty",
   data() {
     return {
+      // user: {
+      //   phonenumber: "976479092333",
+      //   username: "dineshxxxvvv",
+      //   pass: "aaaavvvaa",
+      //   parentuserid: 0,
+      //   realname: "Professor Ramos",
+      //   email: "dddskhobragade@gmail.com",
+      //   usertype: 1
+      // },
       user: {
-        phonenumber: "976479092333",
-        username: "dineshxxxvvv",
-        pass: "aaaavvvaa",
+        phonenumber: "",
+        username: "",
+        pass: "",
+        realname: "",
+        email: "",
         parentuserid: 0,
-        realname: "Professor Ramos",
-        email: "dddskhobragade@gmail.com",
         usertype: 1
       },
       loading: false,
@@ -112,6 +121,7 @@ export default {
             position: "bottom-right",
             duration: 2000
           });
+          this.$router.push("/signin");
         })
         .catch(error => {
           this.$toast.show(error, {

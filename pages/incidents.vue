@@ -5,6 +5,7 @@
       :headers="headers"
       :items="GET_INCIDENTS_DATA"
       :items-per-page="5"
+      :loading="loading"
       class="elevation-1"
     >
     </v-data-table>
@@ -30,11 +31,15 @@ export default {
         { text: "Event Name", value: "eventname" },
         { text: "Real Name", value: "realname" },
         { text: "Date Time", value: "datetime" }
-      ]
+      ],
+      loading: false
     };
   },
   mounted() {
-    this.FETCH_INCIDENTS_DATA();
+    this.loading = true;
+    this.FETCH_INCIDENTS_DATA().then(res => {
+      this.loading = false;
+    });
   },
   computed: {
     ...mapGetters("module/incidents", ["GET_INCIDENTS_DATA"])
