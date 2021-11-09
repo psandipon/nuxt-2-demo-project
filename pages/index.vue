@@ -1,15 +1,15 @@
 <template>
   <div class="ma-5">
-    <!-- <pre>{{ $auth.user }}</pre> -->
     <v-row>
       <v-col cols="12" md="3" xs="12">
+        <!-- <pre> {{ GET_TRIPS_LIVE_DATA }}</pre> -->
         <v-card
           height="250"
-          class="d-flex justify-center align-center flex-column text-h4"
+          class="d-flex justify-center align-center flex-column text-h5"
         >
           <span class="mb-10"> Current Trips </span>
-          <p>Incidents - 25</p>
-          <p>Topics - 25</p>
+          <p>Incidents - {{ GET_TRIPS_LIVE_DATA.totalincidents }}</p>
+          <p>Topics - {{ GET_TRIPS_LIVE_DATA.totaltrips }}</p>
         </v-card>
         <v-card
           class="d-flex justify-center align-end flex-column red--text overline elevation-0 transparent--text mt-n10 mr-5"
@@ -56,6 +56,7 @@
 </template>
 
 <script>
+import { mapMutations, mapGetters, mapActions } from "vuex";
 export default {
   middleware: ["authMiddleware"],
   data() {
@@ -128,6 +129,13 @@ export default {
   },
   mounted() {
     this.charts = true;
+    this.FETCH_TRIPS_LIVE_DATA();
+  },
+  computed: {
+    ...mapGetters("module/topic", ["GET_TRIPS_LIVE_DATA"])
+  },
+  methods: {
+    ...mapActions("module/topic", ["FETCH_TRIPS_LIVE_DATA"])
   }
 };
 </script>

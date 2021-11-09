@@ -3,7 +3,7 @@
     <BrandTitle title="Topics" />
     <v-data-table
       :headers="headers"
-      :items="GET_TOPICS_DATA"
+      :items="GET_TRIPS_DATA"
       :items-per-page="5"
       class="elevation-1"
       :loading="loading"
@@ -34,15 +34,15 @@ export default {
   },
   mounted() {
     this.loading = true;
-    this.FETCH_TOPICS_DATA().then(res => {
+    this.FETCH_TRIPS_DATA().then(res => {
       this.loading = false;
     });
   },
   computed: {
-    ...mapGetters("module/topic", ["GET_TOPICS_DATA"])
+    ...mapGetters("module/topic", ["GET_TRIPS_DATA"])
   },
   methods: {
-    ...mapActions("module/topic", ["FETCH_TOPICS_DATA"])
+    ...mapActions("module/topic", ["FETCH_TRIPS_DATA"])
   }
 };
 </script>

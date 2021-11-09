@@ -119,6 +119,11 @@ export default {
     async logout() {
       await this.$auth.logout();
       this.$router.push("/signin");
+      this.$toast.show("You have been logged out.", {
+        theme: "toasted-primary",
+        position: "bottom-right",
+        duration: 2000
+      });
     }
   }
 };

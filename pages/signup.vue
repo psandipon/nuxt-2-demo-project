@@ -1,62 +1,74 @@
 <template>
   <v-card max-width="500" class="mx-auto" style="margin-top:70px; ">
     <v-container>
-      <v-row dense>
-        <v-col cols="12" sm="12" md="12">
-          <h2 class="text-center mt-6"><b>Sign Up</b></h2>
-        </v-col>
-        <v-col cols="12" sm="12" md="12">
-          <v-card outlined class="pt-4 mx-3 px-3">
-            <v-text-field
-              class="mx-0 ma-3"
-              v-model="user.realname"
-              label="Full Name"
-              outlined
-              prepend-inner-icon="mdi-account"
-              hide-details
-            ></v-text-field>
-            <v-text-field
-              v-model="user.phonenumber"
-              class="mx-0 ma-3"
-              label="Phone Number"
-              outlined
-              prepend-inner-icon="mdi-account"
-              type="tel"
-              hide-details
-            ></v-text-field>
-          </v-card>
-        </v-col>
-        <v-col cols="12" sm="12" md="12">
-          <v-card outlined class="pt-4 mx-3 pa-3">
-            <v-text-field
-              v-model="user.username"
-              class="mx-0 ma-3"
-              label="Username"
-              outlined
-              prepend-inner-icon="mdi-account"
-              hide-details
-            ></v-text-field>
+      <v-form ref="form" v-model="valid" lazy-validation>
+        <v-row dense>
+          <v-col cols="12" sm="12" md="12">
+            <h2 class="text-center mt-6"><b>Sign Up</b></h2>
+          </v-col>
+          <v-col cols="12" sm="12" md="12">
+            <v-card outlined class="pt-4 mx-3 px-3">
+              <v-text-field
+                class="mx-0 ma-3"
+                v-model="user.realname"
+                label="Full Name"
+                outlined
+                prepend-inner-icon="mdi-account"
+                hide-details
+                required
+                :rules="[v => !!v || 'Item is required']"
+              ></v-text-field>
+              <v-text-field
+                v-model="user.phonenumber"
+                class="mx-0 ma-3"
+                label="Phone Number"
+                outlined
+                prepend-inner-icon="mdi-account"
+                type="tel"
+                hide-details
+                required
+                :rules="[v => !!v || 'Item is required']"
+              ></v-text-field>
+            </v-card>
+          </v-col>
+          <v-col cols="12" sm="12" md="12">
+            <v-card outlined class="pt-4 mx-3 pa-3">
+              <v-text-field
+                v-model="user.username"
+                class="mx-0 ma-3"
+                label="Username"
+                outlined
+                prepend-inner-icon="mdi-account"
+                hide-details
+                required
+                :rules="[v => !!v || 'Item is required']"
+              ></v-text-field>
 
-            <v-text-field
-              v-model="user.email"
-              class="mx-0 ma-3"
-              label="Email"
-              outlined
-              prepend-inner-icon="mdi-account"
-              hide-details
-            ></v-text-field>
-            <v-text-field
-              v-model="user.pass"
-              class="mx-0 ma-3"
-              label="Password"
-              outlined
-              type="password"
-              prepend-inner-icon="mdi-lock"
-              hide-details
-            ></v-text-field>
-          </v-card>
-        </v-col>
-      </v-row>
+              <v-text-field
+                v-model="user.email"
+                class="mx-0 ma-3"
+                label="Email"
+                outlined
+                prepend-inner-icon="mdi-account"
+                hide-details
+                required
+                :rules="[v => !!v || 'Item is required']"
+              ></v-text-field>
+              <v-text-field
+                v-model="user.pass"
+                class="mx-0 ma-3"
+                label="Password"
+                outlined
+                type="password"
+                prepend-inner-icon="mdi-lock"
+                hide-details
+                required
+                :rules="[v => !!v || 'Item is required']"
+              ></v-text-field>
+            </v-card>
+          </v-col>
+        </v-row>
+      </v-form>
 
       <v-card-actions class="justify-center ">
         <v-btn class="primary mt-4" @click="signup" :loading="loading">
@@ -84,6 +96,7 @@ export default {
       //   email: "dddskhobragade@gmail.com",
       //   usertype: 1
       // },
+      valid: false,
       user: {
         phonenumber: "",
         username: "",
@@ -114,22 +127,34 @@ export default {
   methods: {
     ...mapActions("module/user", ["ADD_USER"]),
     signup() {
-      this.ADD_USER(this.user)
-        .then(res => {
-          this.$toast.show(res.data, {
-            theme: "toasted-primary",
-            position: "bottom-right",
-            duration: 2000
+      this.loading = true;
+      if (this.$refs.form.validate()) {
+        this.ADD_USER(this.user)
+          .then(res => {
+            this.$toast.show(res.data, {
+              theme: "toasted-primary",
+              position: "bottom-right",
+              duration: 2000
+            });
+            this.$router.push("/signin");
+            this.loading = false;
+          })
+          .catch(error => {
+            this.$toast.show(error, {
+              theme: "toasted-primary",
+              position: "bottom-right",
+              duration: 2000
+            });
+            this.loading = false;
           });
-          this.$router.push("/signin");
-        })
-        .catch(error => {
-          this.$toast.show(error, {
-            theme: "toasted-primary",
-            position: "bottom-right",
-            duration: 2000
-          });
+      } else {
+        this.loading = false;
+        this.$toast.show("Please fill up all the required data", {
+          theme: "toasted-primary",
+          position: "bottom-right",
+          duration: 2000
         });
+      }
     },
     signInAction() {
       this.$router.push("/signin");

@@ -1,24 +1,31 @@
 // initial state
 export const state = () => ({
-  topics: []
+  topics: [],
+  tripsLiveCount:{}
 });
 
 export const getters = {
-  GET_TOPICS_DATA: state => {
+  GET_TRIPS_DATA: state => {
     return state.topics;
+  },
+  GET_TRIPS_LIVE_DATA: state => {
+    return state.tripsLiveCount
   }
 };
 
 // mutations
 const mutations = {
-  SET_TOPICS_DATA(state, data) {
+  SET_TRIPS_DATA(state, data) {
     state.topics = data;
+  },
+  SET_TRIPS_LIVE_DATA(state, data){
+    state.tripsLiveCount = data
   }
 };
 
 // Actions
 const actions = {
-  FETCH_TOPICS_DATA({ commit }, searchParam = {}) {
+  FETCH_TRIPS_DATA({ commit }, searchParam = {}) {
     searchParam = {
       userid: this.$auth.user.userid,
       parentuserid:  this.$auth.user.parentuserid
@@ -27,14 +34,32 @@ const actions = {
       this.$axios
         .$post("/trips/getAllTrips", searchParam)
         .then(function(response) {
-          commit("SET_TOPICS_DATA", response.data);
+          commit("SET_TRIPS_DATA", response.data);
           resolve(response);
         })
         .catch(function(error) {
           reject(error);
         });
     });
-  }
+  },
+
+  FETCH_TRIPS_LIVE_DATA({ commit }, searchParam = {}) {
+    searchParam = {
+      userid: this.$auth.user.userid,
+      parentuserid:  this.$auth.user.parentuserid
+    };
+    return new Promise((resolve, reject) => {
+      this.$axios
+        .$post("/trips/getLiveCounts", searchParam)
+        .then(function(response) {
+          commit("SET_TRIPS_LIVE_DATA", response.data);
+          resolve(response);
+        })
+        .catch(function(error) {
+          reject(error);
+        });
+    });
+  },
 };
 
 export default {
