@@ -8,8 +8,8 @@
           class="d-flex justify-center align-center flex-column text-h5"
         >
           <span class="mb-10"> Current Trips </span>
-          <p>Incidents - {{ GET_TRIPS_LIVE_DATA.totalincidents }}</p>
-          <p>Topics - {{ GET_TRIPS_LIVE_DATA.totaltrips }}</p>
+          <p>Incidents - {{ GET_TRIPS_LIVE_DATA.liveeventscount }}</p>
+          <p>Topics - {{ GET_TRIPS_LIVE_DATA.livetripscount }}</p>
         </v-card>
         <v-card
           class="d-flex justify-center align-end flex-column red--text overline elevation-0 transparent--text mt-n10 mr-5"
@@ -17,17 +17,22 @@
           <b>LIVE</b>
         </v-card>
       </v-col>
-      <v-col cols="12" md="3" xs="12">
-        <DashboardInfocard title="Incidents" number="25" />
-        <DashboardInfocard title="Topic" number="7" class="mt-5" />
-      </v-col>
-      <v-col cols="12" md="3" xs="12">
-        <DashboardInfocard title="Incidents" number="25" />
-        <DashboardInfocard title="Topic" number="7" class="mt-5" />
-      </v-col>
-      <v-col cols="12" md="3" xs="12">
-        <DashboardInfocard title="Incidents" number="25" />
-        <DashboardInfocard title="Topic" number="7" class="mt-5" />
+
+      <v-col cols="12" md="9" xs="12">
+        <v-row>
+          <v-col
+            cols="12"
+            md="4"
+            xs="12"
+            v-for="(item, i) in dashBoardInfoArray"
+            :key="i"
+          >
+            <DashboardInfocard
+              :title="item.title"
+              :number="GET_TRIPS_LIVE_DATA[item.numberOf]"
+            />
+          </v-col>
+        </v-row>
       </v-col>
     </v-row>
     <v-row>
@@ -124,7 +129,33 @@ export default {
             }
           }
         }
-      }
+      },
+      dashBoardInfoArray: [
+        {
+          title: "Incidents",
+          numberOf: "totalincidents"
+        },
+        {
+          title: "Trips",
+          numberOf: "totaltrips"
+        },
+        {
+          title: "Users",
+          numberOf: "totalusers"
+        },
+        {
+          title: "Tailgating",
+          numberOf: "totaltailgating"
+        },
+        {
+          title: "Distraction",
+          numberOf: "totaldistraction"
+        },
+        {
+          title: "Sleep",
+          numberOf: "totalsleeping"
+        }
+      ]
     };
   },
   mounted() {

@@ -3,7 +3,7 @@
     height="115"
     class="d-flex justify-center align-center flex-column text-h5 pt-2"
   >
-    <p>{{ title }}</p>
+    <p class="text-capitalize">{{ title }}</p>
     <p>{{ number }}</p>
   </v-card>
 </template>
