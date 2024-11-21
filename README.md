@@ -1,4 +1,4 @@
-# drishtim
+# Nuxt Demo Project
 
 ## Build Setup
 
